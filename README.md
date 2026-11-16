@@ -5,8 +5,7 @@
 
 一个 Windows 托盘小工具，不弹窗、不打断、不占地方。复制成功与否，用眼睛看，不用猜。
 
-<!-- 建议在仓库根目录放一张 preview.gif 或 preview.png，然后把下面这行替换掉 -->
-<!-- ![preview](preview.gif) -->
+![预览](preview.png)
 
 ---
 
