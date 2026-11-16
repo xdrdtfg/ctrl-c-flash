@@ -5,7 +5,9 @@
 
 一个 Windows 托盘小工具，不弹窗、不打断、不占地方。复制成功与否，用眼睛看，不用猜。
 
-![预览](preview.png)
+![演示](demo.gif)
+
+<sub>上面这段动画不是录屏，而是用程序自身的绘制代码逐帧渲染生成的——所以它和实际运行效果一致。</sub>
 
 ---
 
@@ -26,6 +28,8 @@ CtrlCFlash 的答案是：在光标处炸一个彩虹大 C。看见了，就是�
 - 10 套炫彩主题：彩虹流光 / 北极极光 / 霓虹果冻 / 烈焰熔岩 / 鎏金 / 冰霜 / 糖果粉 / 矩阵绿 / 赛博紫电，外加自定义双色渐变
 - 渐变色会在字母上流动，流速可调（0 = 完全静止）
 - 字体、字重（常规/加粗/特粗）、起始大小、最大大小、不透明度、辉光强度全部可调
+
+![主题一览](preview.png)
 
 **动画**
 - 6 种出现方式：缩放冲入 / 旋转飞入 / 淡入浮现 / 闪烁登场 / 弹性弹跳 / 雷霆砸落
@@ -73,6 +77,15 @@ pyinstaller CtrlCFlash.spec
 ```
 
 产物在 `dist/CtrlCFlash.exe`，约 25MB。
+
+推一个 `v*` 开头的标签，GitHub Actions 会自动完成同样的事并把 exe 挂到 Release，
+不需要在自己机器上装 PyInstaller：
+
+```bash
+git tag v1.0.1 && git push origin v1.0.1
+```
+
+工作流见 [.github/workflows/release.yml](.github/workflows/release.yml)。
 
 `CtrlCFlash.spec` 里做了一件事：PyInstaller 的 Qt 钩子会把整个 PySide6 都塞进来，
 其中一大半是这个托盘工具永远用不到的（`opengl32sw.dll` 单个就 19.7MB、QML 全家桶、
